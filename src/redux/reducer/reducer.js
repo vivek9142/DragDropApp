@@ -29,6 +29,8 @@ const reducer = (state=initialState,action) => {
                 ...state,
                 image:updatedImgArray
             }
+        case ActionTypes.DATA_SAVE:
+            return '';
         default:
             return state;
     }
