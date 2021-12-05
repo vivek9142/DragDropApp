@@ -9,3 +9,7 @@
     color: white;
     background-color: #232222;
   }
+
+  .button--disabled{
+    background-color: #747474;
+  }

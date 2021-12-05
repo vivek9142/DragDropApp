@@ -1,14 +1,39 @@
 import React from 'react';
 import Input from '../../components/Input/Input.component';
+import { useState } from 'react';
 import Button from '../../components/Button/Button.component';
-import {useSelector} from 'react-redux';
+import {useSelector,useDispatch} from 'react-redux';
+import {imagelabelChange} from '../../redux/actionCreator/labelActionCr';
+
 import './LabelPage.styles.css';
 
 const LabelPage = (props) => {
-    const imageData = useSelector(state => state);
-    console.log(imageData);
 
+    const imageData = useSelector(state => state);
+    const dispatch = useDispatch();
+    const imgLength = imageData.image.length;
     
+    const [img,setImg] = useState(0);
+    const [label,setLabel] = useState('');
+
+
+    const PrevButtonHandler = () => {
+        
+        if(img>0)
+        setImg((img)=> { let i=img; i--; return i;})
+
+        setLabel()
+    }
+
+    const NextButtonHandler = (path,label) => {
+        
+        if(img<imgLength-1)
+        setImg((img)=> {let i=img; i++; return i;})
+
+        dispatch(imagelabelChange(path,label));
+
+        setLabel('');
+    }
     return (
         <div className="labelpage__container">
             <h2 className='labelpage__heading'>Label Images</h2>
@@ -17,18 +42,27 @@ const LabelPage = (props) => {
                     <Input type="text" name='label' labelText='Label' 
                         className='label_page--input-item--input' 
                         labelClass='label_page--input-item--label'
-                        placeholder='Type Something!' required/>
+                        placeholder='Type Something!' onChange={(ev)=>setLabel(ev.target.value)} value={imageData.image[img].label?imageData.image[img].label:label} required/>
                 </div>
                 <div className="labelpage__container--image-container">
-                    <img src="https://images.unsplash.com/photo-1638438134319-68477408c19b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=268&q=80" 
+                    <img src={imageData.image[img].preview} 
                     alt="" className="labelpage__container--image" />
                 </div>
 
                 <div className="label__container--button--container">
                     <div className="label__container--button-pair">
                         {/* type='submit' */}
-                        <Button  className='button__primary label_page--button'>Prev</Button>
-                        <Button  className='button__primary label_page--button'>Next</Button>
+
+                            <Button  className={`button__primary label_page--button ${img===0 || imgLength===1 ? 'button--disabled' : ''}`} 
+                            onClick={() => PrevButtonHandler(imageData.image[img].path,label)} 
+                            disabled={img===0 || imgLength===1 ? 'disabled' : ''}>
+                                Prev
+                            </Button>
+
+                            <Button  className={`button__primary label_page--button ${img===imgLength-1 || imgLength===1 ? 'button--disabled' : ''}`}
+                            onClick={() => NextButtonHandler(imageData.image[img].path,label)} disabled={img>=imgLength || imgLength===1 ? 'disabled' : ''}>
+                                Next
+                            </Button>
                     </div>
                     <Button  className='button__primary label_page--button'>Save</Button>
                 </div>

@@ -18,11 +18,17 @@ const reducer = (state=initialState,action) => {
                 description:action.payload.description,
                 image:action.payload.image
             }
-        // case ActionTypes.IMAGE_LABEL_DATA_CHANGE:
-        //     return {
-        //         ...state,
+        case ActionTypes.IMAGE_LABEL_DATA_CHANGE:
+            const updatedImgArray = state.image.map((img)=>{
+                if(img.path === action.payload.path)
+                img.label = action.payload.label
 
-        //     }
+                return img;
+            });
+            return {
+                ...state,
+                image:updatedImgArray
+            }
         default:
             return state;
     }

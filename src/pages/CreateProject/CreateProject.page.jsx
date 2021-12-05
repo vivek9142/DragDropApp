@@ -27,8 +27,8 @@ const CreateProject = (props) => {
         setFormValues(data);
     }
     return(
+        <form onSubmit={submitHandler}>
         <div className="create_project--container">
-            <form onSubmit={submitHandler}>
             <div className="create_project--sub-item">
                 <DragDrop onFileSubmit={FileSubmitHandler}/>
             </div>
@@ -52,8 +52,8 @@ const CreateProject = (props) => {
             <div className="create_project--sub-item create_project--button-container">
                     <Button type='submit' className='button__primary create_project--button'>Create</Button>
             </div>
-            </form>
         </div>
+        </form>
     )
 }
 
