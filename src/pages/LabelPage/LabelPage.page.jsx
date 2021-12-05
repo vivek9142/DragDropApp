@@ -3,7 +3,7 @@ import Input from '../../components/Input/Input.component';
 import { useState } from 'react';
 import Button from '../../components/Button/Button.component';
 import {useSelector,useDispatch} from 'react-redux';
-import {imagelabelChange} from '../../redux/actionCreator/labelActionCr';
+import {imagelabelChange, saveData} from '../../redux/actionCreator/labelActionCr';
 
 import './LabelPage.styles.css';
 
@@ -37,6 +37,7 @@ const LabelPage = (props) => {
     const dataSaveHandler = (event) => {
         event.preventDefault();
         console.log(imageData);
+        saveData(imageData);
     }
     return (
         <div className="labelpage__container">
