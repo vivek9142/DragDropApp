@@ -1,0 +1,23 @@
+.DragDrop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3.5px dashed #797878;
+    border-radius: 1.3rem;
+    background: #e1e1e1;
+}
+.DragDrop--Component{
+    height: 14rem;
+    display: grid;
+    place-items: center;
+}
+.DragDrop--Component p {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom:  3.5rem;
+}
+
+svg.DragDrop--Component-icon {
+    width: 4rem;
+    margin-top: 3rem;
+}

@@ -1,0 +1,10 @@
+.input--label{
+    padding: 0.4rem 0;
+    display: block;
+}
+.input-type--text,.input-type--textarea {
+    background: #e1e1e1;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+}

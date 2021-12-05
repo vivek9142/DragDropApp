@@ -1,0 +1,39 @@
+.create_project--container{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 5rem;
+    margin: 10rem 12rem;
+}
+.create_project--input-item:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.create_project--sub-item {
+    text-align: start;
+}
+
+label.create_project--input-item--label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #4c4b4b;
+}
+textarea#desc {
+    height: 6rem;
+}
+.create_project--input-item--input {
+    width: 100%;
+    color: #4c4b4b;
+    background: #e1e1e1;
+}
+
+.create_project--button-container{
+    display: grid;
+    grid-row: 2/-1;
+    grid-column: 1/-1;
+}
+
+.create_project--button{
+    justify-self: center;   
+    cursor:pointer;
+}

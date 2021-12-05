@@ -1,0 +1,65 @@
+.labelpage__container{
+    max-width: 50rem;
+    margin: 1rem auto;
+}
+.labelpage__container--body{
+    text-align: start;
+    background: #e4e1e1;
+    border-radius: 1rem;
+}
+.labelpage__container--input-container{
+    width:80%;
+    margin: 1rem;
+}
+.labelpage__container--image-container {
+    margin: 0 1rem;
+    overflow: hidden;
+    background: #c4c1c1;
+    border-radius: 0.6rem;
+}
+.labelpage__container--image{
+    width: 100%;
+    height: 440px;
+    object-fit: scale-down;
+    object-position: center;
+    border-radius: 1rem;
+}
+.label_page--input-item:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.create_project--sub-item {
+    text-align: start;
+}
+
+.label_page--input-item--label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #4c4b4b;
+}
+.label_page--input-item--input {
+    width: 100%;
+    color: #1e1d1d;
+    background-color: #b5b5b5;
+}
+.label__container--button--container{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2,1fr);
+    width: 26rem;
+    padding: 1rem;
+}
+.label__container--button-pair{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+.create_project--button-container{
+    display: grid;
+    grid-row: 2/-1;
+    grid-column: 1/-1;
+}
+
+.label_page--button{
+    justify-self: center;   
+}
