@@ -5,30 +5,37 @@ const imagelabelChange = (path,label='') => {
 }
 
 const saveData = async (data) => {
-        
-        var fileToLoad = data.image[0];
+        //converting img file to base64 data
         await data.image.map(async (img)=> {
             let fileReader = new FileReader();
-        fileReader.onload = await function(fileLoadedEvent) {
-            let srcData  = fileLoadedEvent.target.result;
+         fileReader.onload = async function(fileLoadedEvent) {
+            let srcData  = await fileLoadedEvent.target.result;
         
-        img['base64']=srcData
+        img['base64']=srcData;
         return img;
         };
-        await fileReader.readAsDataURL(fileToLoad)
+        await fileReader.readAsDataURL(img)
         });
-        
-        downloadjson(data)
-}
+        const newData = data;
 
-const downloadjson = (exportObj, exportName='export') =>{
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
-    var downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href",     dataStr);
-    downloadAnchorNode.setAttribute("download", exportName + ".json");
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-  }
+        //alerting user to wait while file downloads
+         window.alert('please wait for file to download');
+
+        //timeout to makesure all data is received successfully inc base64
+        setTimeout(async()=>{
+            let dataStr = "data:text/json;charset=utf-8," + JSON.stringify(newData,0,2);
+    
+            let downloadAnchorNode = await document.createElement('a');
+
+            await downloadAnchorNode.setAttribute("href",     dataStr);
+            await downloadAnchorNode.setAttribute("download", "export.json");
+
+            await document.body.appendChild(downloadAnchorNode);
+            await downloadAnchorNode.click();
+            await downloadAnchorNode.remove();
+        },3000);
+    
+        
+}
 
 export {imagelabelChange,saveData};

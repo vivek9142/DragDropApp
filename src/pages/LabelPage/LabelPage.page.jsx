@@ -3,7 +3,7 @@ import Input from '../../components/Input/Input.component';
 import { useState } from 'react';
 import Button from '../../components/Button/Button.component';
 import {useSelector,useDispatch} from 'react-redux';
-import {imagelabelChange, saveData} from '../../redux/actionCreator/labelActionCr';
+import { imagelabelChange, saveData} from '../../redux/actionCreator/labelActionCr';
 
 import './LabelPage.styles.css';
 
@@ -20,7 +20,6 @@ const LabelPage = (props) => {
     const PrevButtonHandler = async () => {
         if(img>0)
         await setImg((img)=> { let i=img; i--; return i;})
-        // setLabel(imageData.image[img].label)
     }
 
     const NextButtonHandler = async (path,label) => {
@@ -29,15 +28,15 @@ const LabelPage = (props) => {
             if(img<imgLength-1)
             await setImg((img)=> {let i=img; i++; return i;})
         
-
-        await imageData.image[img+1]?.label? setLabel(imageData.image[img].label):setLabel('');
+        if(img===imgLength-1) setLabel(imageData.image[img].label)
+        else imageData.image[img+1]?.label? setLabel(imageData.image[img+1].label):setLabel('');
         }
     }
 
-    const dataSaveHandler = (event) => {
+    const dataSaveHandler = async (event) => {
         event.preventDefault();
         console.log(imageData);
-        saveData(imageData);
+        await saveData(imageData);
     }
     return (
         <div className="labelpage__container">
