@@ -1,12 +1,38 @@
+.container{
+    max-width: 70%;
+    margin: 1.5rem auto; 
+    background: #ffffff9e;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+}
+.container__heading{
+    border-bottom: 1px solid;
+    margin-bottom: 2rem;
+}
+.container__heading h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    padding-bottom: 0.31rem;
+}
+
 .create_project--container{
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2,1fr);
-    grid-gap: 5rem;
-    margin: 10rem 12rem;
+    margin-top: 1.5rem;
+    grid-row-gap: 2rem;
+    grid-column-gap: 3rem;
+    max-width: 100%;
 }
 .create_project--input-item:first-child {
     margin-bottom: 0.5rem;
+}
+
+form{
+    display: block;
+    max-width: 90%;
+    margin: auto;
 }
 
 .create_project--sub-item {
@@ -31,9 +57,12 @@ textarea#desc {
     display: grid;
     grid-row: 2/-1;
     grid-column: 1/-1;
+    margin-bottom:1rem;
 }
 
 .create_project--button{
     justify-self: center;   
     cursor:pointer;
+    padding: .6rem 3rem;
+    font-size: 1.3rem;
 }

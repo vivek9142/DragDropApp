@@ -1,0 +1,30 @@
+/* section.about__section--container {
+    border: 1px solid #333;
+    border-radius: 0.25rem;
+    background: #3f51b56e;
+    padding: 1rem 2rem;
+    margin: 1rem 0.5rem;
+} */
+.about__section--container {
+    background: #3ab78987;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border-top: 5px solid #333;
+    border-bottom: 5px solid #333;
+    max-width: 50rem;
+    margin: auto;
+}
+.about__section--heading-container {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+.about__section--heading-container h3 {
+    font-weight: 800;
+}
+
+ul.about__section--body-list {
+    margin-left: 2rem;
+}
+.about__section--body--caption {
+    margin-top: 0.7rem;
+}

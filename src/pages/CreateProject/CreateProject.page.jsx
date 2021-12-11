@@ -2,8 +2,11 @@ import React from 'react';
 import Button from '../../components/Button/Button.component';
 import DragDrop from '../../components/DragDrop/DragDrop.component';
 import Input from '../../components/Input/Input.component';
+import About from '../../components/About/About.component';
+
 import { useDispatch } from 'react-redux';
 import {projectDataSubmit} from '../../redux/actionCreator/formActionCr';
+
 import './CreateProject.styles.css';
 
 const CreateProject = (props) => {
@@ -27,6 +30,11 @@ const CreateProject = (props) => {
         setFormValues(data);
     }
     return(
+        <div className='container'>
+            <div className="container__heading">
+                <h2>Drag Drop App</h2>
+            </div>
+        <About/>
         <form onSubmit={submitHandler}>
         <div className="create_project--container">
             <div className="create_project--sub-item">
@@ -35,6 +43,7 @@ const CreateProject = (props) => {
 
             <div className="create_project--sub-item">
                 <div className="create_project--input-item">
+
                     <Input type="text" name='name' labelText='Name' 
                     className='create_project--input-item--input' 
                     labelClass='create_project--input-item--label'
@@ -54,6 +63,7 @@ const CreateProject = (props) => {
             </div>
         </div>
         </form>
+        </div>
     )
 }
 
