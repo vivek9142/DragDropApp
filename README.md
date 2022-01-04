@@ -1,8 +1,7 @@
 # DragDropApp
 DragDropApp is an project assets management app which comes up with managing Project assets along with their meta-data. We can import images, add meta-data to them and export the whole data in JSON format. 
 
-#### Deployment Website Link - 
-#### [https://dragdropapp.netlify.app/](https://dragdropapp.netlify.app/)
+#### Deployment Website Link - [https://dragdropapp.netlify.app/](https://dragdropapp.netlify.app/)
 
 ## Features
 Drag Drop App comes up with project initiation process.
